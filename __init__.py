@@ -2,9 +2,7 @@
 """ 
 
 import json
-from .pynepal import states, districts
-
-
+from .pynepal import provinces, districts
 
 # Basic information
 area = 147181
@@ -16,6 +14,9 @@ total_districts = "77"
 total_states = 7
 density = "180"
 
+# Provinces list
+province_one, province_two, province_three, province_four, province_five, \
+province_six, province_seven = provinces
 
 
 

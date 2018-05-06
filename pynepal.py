@@ -1,8 +1,8 @@
 import json 
 
 # Parse all states
-with open('pynepal/db/state.json', 'r') as json_states:
-     json_states = json.load(json_states)
+with open('pynepal/db/provinces.json', 'r') as json_provinces:
+     json_provinces = json.load(json_provinces)
 
 # Parse all districts.
 with open('pynepal/db/districts.json', 'r') as json_districts:
@@ -25,12 +25,21 @@ class AbstractObj(object):
         
        
 class Municipality(AbstractObj):
+    """
+    Class for municipality object
+    """ 
     pass 
 
 class SubMetropolitanCity(AbstractObj):
+    """
+    Class for submetropolitian city
+    """
     pass 
 
 class District(AbstractObj):
+    """
+    Class for district
+    """
     pass 
 
 
@@ -40,10 +49,11 @@ for json_district in json_districts:
     districts.append(District(**json_district))
 
 
-class State(AbstractObj):
+class Province(AbstractObj):
     """
     State class to hold information about states of Nepal
     """
+
     @property
     def districts(self):
        """
@@ -52,8 +62,10 @@ class State(AbstractObj):
        province_districts = [dist for dist in districts if dist.province_no == self.province_no]
        return province_districts
 
-# List of states.
-states = [] 
-for json_state in json_states:
-     states.append(State(**json_state))
-  
+# List of provinces.
+provinces = [] 
+for json_state in json_provinces:
+     provinces.append(Province(**json_state))
+
+# Sort province based on province no.
+provinces.sort(key=lambda state: state.province_no)

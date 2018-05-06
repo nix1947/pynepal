@@ -1,0 +1,91 @@
+ [
+        {
+            "province_no": 7,
+            "capital": "Dhangadhi",
+            "governer": "Mohan Raj Malla",
+            "chief_minister": "Trilochan Bhatta",
+            "area": "19539 ",
+            "population":"2552517",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"Province no 7",
+            "hdi": "0.478",
+            "literacy":	"63.48"
+        },
+        {
+            "province_no": 6,
+            "capital": "Dhangadhi",
+            "governer": "Durga Keshar Khanal",
+            "chief_minister": "Mahendra Bahadur Shahi",
+            "area": "30213",
+            "population":"1570418",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"karnali pradesh",
+            "hdi": "0.478",
+            "literacy":	"63.48"
+        },
+        {
+            "province_no": 5,
+            "capital": "Dhangadhi",
+            "governer": "Durga Keshar Khanal",
+            "chief_minister": "Mahendra Bahadur Shahi",
+            "area": "30213",
+            "population":"1570418",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"Province no 5",
+            "hdi": "0.478",
+            "literacy":	"63.48"
+        },
+        {
+            "province_no": 4,
+            "capital": "Dhangadhi",
+            "governer": "Durga Keshar Khanal",
+            "chief_minister": "Mahendra Bahadur Shahi",
+            "area": "30213",
+            "population":"1570418",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"Province no 4",
+            "hdi": "0.478",
+            "literacy":	"63.48"
+        },
+        {
+            "province_no": 3,
+            "capital": "Dhangadhi",
+            "governer": "Durga Keshar Khanal",
+            "chief_minister": "Mahendra Bahadur Shahi",
+            "area": "30213",
+            "population":"1570418",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"Province no 3",
+            "hdi": "0.478",
+            "literacy":	"63.48"
+        },
+        {
+            "province_no": 2,
+            "capital": "Dhangadhi",
+            "governer": "Durga Keshar Khanal",
+            "chief_minister": "Mahendra Bahadur Shahi",
+            "area": "30213",
+            "population":"1570418",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"Province no 2",
+            "hdi": "0.478",
+            "literacy":	"63.48"
+        },
+        {
+            "province_no": 1,
+            "capital": "Biratnagar",
+            "governer": "Dr. Govinda Subba",
+            "chief_minister": "Sher Dhan Rai",
+            "area": "25905",
+            "population":"4534943",
+            "density":"175",
+            "formation": "20 September 2015",
+            "name":"Province no 1"
+        }
+    ]
