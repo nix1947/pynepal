@@ -1,0 +1,11 @@
+[
+    {
+        "province_no": 1,
+        "name": "area",
+        "headquater": "pokhara",
+        "area": 12, 
+        "population": 1234,
+        "website": "http:hello",
+        "province": 1
+    }
+]
