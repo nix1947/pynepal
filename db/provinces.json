@@ -8,7 +8,7 @@
             "population":"2552517",
             "density":"175",
             "formation": "20 September 2015",
-            "name":"Province no 7",
+            "name":"mahakali pradesh",
             "hdi": "0.478",
             "literacy":	"63.48"
         },
@@ -34,7 +34,7 @@
             "population":"1570418",
             "density":"175",
             "formation": "20 September 2015",
-            "name":"Province no 5",
+            "name":"lumbini pradesh",
             "hdi": "0.478",
             "literacy":	"63.48"
         },
@@ -47,7 +47,7 @@
             "population":"1570418",
             "density":"175",
             "formation": "20 September 2015",
-            "name":"Province no 4",
+            "name":"Annapurna pradesh",
             "hdi": "0.478",
             "literacy":	"63.48"
         },
@@ -60,7 +60,7 @@
             "population":"1570418",
             "density":"175",
             "formation": "20 September 2015",
-            "name":"Province no 3",
+            "name":"kathmandu pradesh",
             "hdi": "0.478",
             "literacy":	"63.48"
         },
@@ -73,7 +73,7 @@
             "population":"1570418",
             "density":"175",
             "formation": "20 September 2015",
-            "name":"Province no 2",
+            "name":"Janakpur pradesh",
             "hdi": "0.478",
             "literacy":	"63.48"
         },
@@ -86,6 +86,6 @@
             "population":"4534943",
             "density":"175",
             "formation": "20 September 2015",
-            "name":"Province no 1"
+            "name":"Sagarmatha pradesh"
         }
     ]
