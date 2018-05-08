@@ -21,7 +21,7 @@ class AbstractObj(object):
      
     def __repr__(self):
         if hasattr(self, "name"):
-            return "{}('{}')".format(self.__class__.__name__,getattr(self, "name"))
+            return "{}('{}')".format(self.__class__.__name__,getattr(self, "name").lower())
 
 
 class RuralMuncipality(AbstractObj):
@@ -92,11 +92,9 @@ class _Provinces(list):
         self.sort(key=lambda state: state.province_no)
 
 
-
-
     def __getattr__(self, attrname):
         """
-        nepal_provinces = Provinces()
+        nepal_provinces = _Provinces()
         nepal_provinces.province_one
         """
         if attrname not in self.province_names:
