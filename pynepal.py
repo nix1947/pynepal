@@ -64,29 +64,29 @@ class District(AbstractObj):
 
 class _Districts(list):
     """
-    Return a list of districts with max value of 77 
+    Return a list of districts with max value of 77
     """
     # List of districts name
     districts_name = [district.get("name").lower()
                       for district in json_districts]
 
-    def __init__(self):
+    def __init__(self, *args):
         super(_Districts, self).__init__()
-
-        # parse districts
-        for json_district in json_districts:
-            self.append(District(**json_district))
+       
+        # append the items
+        for item in args:
+            self.append(item)
         
     def __getattr__(self, attrname):
         if attrname not in self.districts_name:
-                raise AttributeError("{} has no attribute {}".format(self.__class__.__name__, attrname))
+            raise AttributeError("{} has no attribute {}".format(self.__class__.__name__, attrname))
         
         # Search the districts object and return the value. 
         return list(filter(lambda district: district.name == attrname, self))[0]    
 
 
-# Create districts
-districts = _Districts()  # return modified list of districts
+# Create List of districts which is a type of _Districts
+districts = _Districts(*[District(**json_district) for json_district  in json_districts]) 
 
 
 class Province(AbstractObj):
@@ -101,7 +101,10 @@ class Province(AbstractObj):
        """
        province_districts = [
            dist for dist in districts if dist.province_no == self.province_no]
-       return province_districts
+        
+   
+       # Create and return of list of districts
+       return _Districts(*province_districts)
 
 
 class _Provinces(list):
@@ -110,7 +113,7 @@ class _Provinces(list):
     """
     province_names = ("province_one", "province_two", "province_three",
                       "province_four", "province_five", "province_six", "province_seven")
-    indexes = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+    indexes = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,"seven":7}
 
     def __init__(self):
         super(_Provinces, self).__init__()
