@@ -192,7 +192,7 @@
         "province_no": 3,
         "name": "Sindhuli",
         "headquarter": "Kamalamai",
-        "area)": "2,491",
+        "area": "2,491",
         "population": "296,192",
         "website": ""
     },
@@ -200,7 +200,7 @@
         "province_no": 3,
         "name": "Ramechhap",
         "headquarter": "Manthali",
-        "area)": "1,546",
+        "area": "1,546",
         "population": "202,646",
         "website": ""
     },
@@ -208,7 +208,7 @@
         "province_no": 3,
         "name": "Dolakha",
         "headquarter": "Bhimeshwar",
-        "area)": "2,191",
+        "area": "2,191",
         "population": "186,557",
         "website": ""
     },
@@ -216,7 +216,7 @@
         "province_no": 3,
         "name": "Bhaktapur",
         "headquarter": "Bhaktapur",
-        "area)": 119,
+        "area": 119,
         "population": "304,651",
         "website": ""
     },
@@ -224,7 +224,7 @@
         "province_no": 3,
         "name": "Dhading",
         "headquarter": "Nilkantha",
-        "area)": "1,926",
+        "area": "1,926",
         "population": "336,067",
         "website": ""
     },
@@ -232,7 +232,7 @@
         "province_no": 3,
         "name": "Kathmandu",
         "headquarter": "Kathmandu",
-        "area)": 395,
+        "area": 395,
         "population": "1,744,240",
         "website": ""
     },
@@ -240,7 +240,7 @@
         "province_no": 3,
         "name": "Kavrepalanchok",
         "headquarter": "Dhulikhel",
-        "area)": "1,396",
+        "area": "1,396",
         "population": "381,937",
         "website": ""
     },
@@ -248,7 +248,7 @@
         "province_no": 3,
         "name": "Lalitpur",
         "headquarter": "Lalitpur",
-        "area)": 385,
+        "area": 385,
         "population": "468,132",
         "website": ""
     },
@@ -256,7 +256,7 @@
         "province_no": 3,
         "name": "Nuwakot",
         "headquarter": "Bidur",
-        "area)": "1,121",
+        "area": "1,121",
         "population": "277,471",
         "website": ""
     },
@@ -264,7 +264,7 @@
         "province_no": 3,
         "name": "Rasuwa",
         "headquarter": "Dhunche",
-        "area)": "1,544",
+        "area": "1,544",
         "population": "43,300",
         "website": ""
     },
@@ -272,7 +272,7 @@
         "province_no": 3,
         "name": "Sindhupalchok",
         "headquarter": "Chautara",
-        "area)": "2,542",
+        "area": "2,542",
         "population": "287,798",
         "website": ""
     },
@@ -280,7 +280,7 @@
         "province_no": 3,
         "name": "Chitwan",
         "headquarter": "Bharatpur",
-        "area)": "2,218",
+        "area": "2,218",
         "population": "579,984",
         "website": ""
     },
@@ -288,7 +288,7 @@
         "province_no": 3,
         "name": "Makwanpur",
         "headquarter": "Hetauda",
-        "area)": "2,426",
+        "area": "2,426",
         "population": "420,477",
         "website": ""
     },

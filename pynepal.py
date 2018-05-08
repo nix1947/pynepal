@@ -67,7 +67,7 @@ class _Districts(list):
     Return a list of districts with max value of 77 
     """
     # List of districts name
-    districts_name = [district.get("name", None)
+    districts_name = [district.get("name").lower()
                       for district in json_districts]
 
     def __init__(self):
@@ -76,7 +76,13 @@ class _Districts(list):
         # parse districts
         for json_district in json_districts:
             self.append(District(**json_district))
-
+        
+    def __getattr__(self, attrname):
+        if attrname not in self.districts_name:
+                raise AttributeError("{} has no attribute {}".format(self.__class__.__name__, attrname))
+        
+        # Search the districts object and return the value. 
+        return list(filter(lambda district: district.name == attrname, self))[0]    
 
 
 # Create districts
