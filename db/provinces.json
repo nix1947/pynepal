@@ -27,15 +27,15 @@
         },
         {
             "province_no": 5,
-            "capital": "Dhangadhi",
-            "governer": "Durga Keshar Khanal",
-            "chief_minister": "Mahendra Bahadur Shahi",
-            "area": "30213",
-            "population":"1570418",
-            "density":"175",
+            "capital": "Butwal",
+            "governer": 	"Umakanta Jha",
+            "chief_minister": "Shankar Pokhrel",
+            "area": "22,288",
+            "population":"4,499,272",
+            "density":"200",
             "formation": "20 September 2015",
             "name":"lumbini pradesh",
-            "hdi": "0.478",
+            "hdi": "0.519",
             "literacy":	"63.48"
         },
         {
