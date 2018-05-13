@@ -3,15 +3,15 @@ from .utils import clean_string
 
 # Parse all states
 with open('pynepal/db/provinces.json', 'r') as json_provinces:
-     json_provinces = json.load(json_provinces)
+    json_provinces = json.load(json_provinces)
 
 # Parse all districts.
 with open('pynepal/db/districts.json', 'r') as json_districts:
-     json_districts = json.load(json_districts)
+    json_districts = json.load(json_districts)
 
 # Parse all municipalities.
 with open('pynepal/db/municipalities.json', 'r') as json_municipalities:
-     json_municipalities = json.load(json_municipalities)
+    json_municipalities = json.load(json_municipalities)
 
 
 class AbstractObj(object):
@@ -100,7 +100,7 @@ types = ("metropolitan", "submetropolitan",
 for item in json_municipalities:
     if item.get('type') in types:
         if item.get('type') == "metropolitan":
-           metropolitans.append(Metropolitan(**item))
+            metropolitans.append(Metropolitan(**item))
 
         elif item.get('type') == "submetropolitan":
             sub_metropolitans.append(SubMetropolitan(**item))
@@ -198,14 +198,14 @@ class Province(AbstractObj):
 
     @property
     def districts(self):
-       """
-       Return all the district of this state
-       """
-       province_districts = [
-           dist for dist in districts if dist.province_no == self.province_no]
+        """
+        Return all the district of this state
+        """
+        province_districts = [
+            dist for dist in districts if dist.province_no == self.province_no]
 
-       # Create and return of list of districts
-       return lists(*province_districts, attr_list=province_districts)
+        # Create and return of list of districts
+        return lists(*province_districts, attr_list=province_districts)
 
     @property
     def metropolitans(self):

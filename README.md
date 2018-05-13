@@ -11,6 +11,9 @@ pip install pynepal
 import pynepal
 >>> pynepal.population
 '26,494,504'
+
+>>> pynepal.provinces.province_five.districts.gulmi.area
+>>> pynepal.provinces.province_one.districts
 ```
 
 #### Get provinces information
@@ -23,19 +26,33 @@ import pynepal
 #### Get province five info
 ```
 >>> from pynepal import province_five
+>>> from pynepal import provinces
+
 >>> province_five
 Province('lumbini pradesh')
+
 
 # Get name
 >>> province_five.name
 'lumbini pradesh'
+
+# Get all metropolitan list of province five. 
+>>> province_five.metropolitans
+
+# Get submetropolitan list 
+>>> provinces.province_five.sub_metropolitans
+
+# Get all the municipalities list of province five
+>>> provinces.province_five.municipalities
+
+# Get all the gaupalika(rural muncipilites) of province five
+>>> provinces.province_five.rural_municipalities
 
 # Get the province five districts gulmi info 
 >>> province_five.districts.gulmi.headquarter
 'resunga'
 
 # Know who is the CM
->>> from pynepal import provinces
 >>> provinces.province_five.chief_minister
 'shankar pokhrel'
 
@@ -56,3 +73,11 @@ from pynepal import province_five
 >>> provinces.province_five.districts.gulmi.province_no
 5
 ```
+
+## Links
+- Website: [http://manojgautam.com.np/pynepal](http://manojgautam.com.np/pynepal)
+- Documentation: [Documentation]()
+- License: [License]()
+- Releases: [Releases]()
+- Code: [code]()
+- Issue tracker: [Issue tracker]()
