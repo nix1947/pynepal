@@ -2,9 +2,15 @@
 """ 
 
 import json
-from .pynepal import provinces, districts
+from .pynepal import (
+    provinces,
+    districts,
+    metropolitans,
+    sub_metropolitan,
+    municipalities,
+    rural_municipalities,
+)
 
-# Basic information
 area = 147181
 population = "26,494,504"
 capital = "Kathmandu"

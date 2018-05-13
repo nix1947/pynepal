@@ -1,0 +1,42 @@
+[
+    {
+        "district": "gulmi",
+        "province_no": 1,
+        "type": "submetropolitan",
+        "area":12,
+        "wards":3,
+        "population":1243,
+        "name": "submetropolitan"
+
+    },
+    {
+        "district": "Taplejung",
+        "province_no": 1,
+        "type": "metropolitan",
+        "area":12,
+        "wards":3,
+        "population":1243,
+        "name": "metropolitan"
+
+    },
+    {
+        "district": "Taplejung",
+        "province_no": 1,
+        "type": "municipality",
+        "area":12,
+        "wards":3,
+        "population":1243,
+        "name": "municipality"
+
+    },
+    {
+        "district": "Taplejung",
+        "province_no": 1,
+        "type": "ruralmunicipality",
+        "area":12,
+        "wards":3,
+        "population":1243,
+        "name": "ruralmunicipality"
+
+    }
+]

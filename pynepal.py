@@ -1,4 +1,5 @@
 import json
+from .utils import clean_string
 
 # Parse all states
 with open('pynepal/db/provinces.json', 'r') as json_provinces:
@@ -8,17 +9,21 @@ with open('pynepal/db/provinces.json', 'r') as json_provinces:
 with open('pynepal/db/districts.json', 'r') as json_districts:
      json_districts = json.load(json_districts)
 
+# Parse all municipalities.
+with open('pynepal/db/municipalities.json', 'r') as json_municipalities:
+     json_municipalities = json.load(json_municipalities)
+
 
 class AbstractObj(object):
     """
-    Abstract class for State, District
+    Abstract class for state, district and municipalities,
     """
 
     def __init__(self, **kwargs):
         for attr, val in kwargs.items():
             # Convert to lower case if instance is string else do nothing
-            attr = attr.lower() if isinstance(attr, str) else attr
-            val = val.lower() if isinstance(val, str) else val
+            attr = clean_string(attr) if isinstance(attr, str) else attr
+            val = clean_string(val) if isinstance(val, str) else val
             if not hasattr(self, attr):
                 setattr(self, attr, val)
 
@@ -27,9 +32,39 @@ class AbstractObj(object):
             return "{}('{}')".format(self.__class__.__name__, getattr(self, "name").lower())
 
 
-class RuralMuncipality(AbstractObj):
+class lists(list):
     """
-    Represent RuralMuncipality
+    Return the list object with  with overloaded . operator
+    attributes are check against the attr_list
+    """
+
+    def __init__(self, *args, attr_list=[]):
+        super(lists, self).__init__()
+        self._attr_list = attr_list
+
+        # append the items
+        for item in args:
+            self.append(item)
+
+    def __getattr__(self, attrname):
+        # If attribute is two word, split it and check in attr_list
+        # attribute is given in the form of self.eastern_rukum
+        attrname = " ".join(attrname.split("_"))
+
+        if attrname not in self._attr_list:
+            raise AttributeError("{} has no attribute {}".format(
+                self.__class__.__name__, attrname))
+
+        # Search the districts object and return the value.
+        for item in self:
+            if item.name == attrname:
+                return item
+        return list(filter(lambda item: item.name == attrname, self))[0]
+
+
+class RuralMunicipality(AbstractObj):
+    """
+    Represent RuralMunicipality
     """
     pass
 
@@ -41,18 +76,96 @@ class Municipality(AbstractObj):
     pass
 
 
-class SubMetropolitanCity(AbstractObj):
+class SubMetropolitan(AbstractObj):
     """
     Class for submetropolitian city
     """
     pass
 
 
-class MetropolitanCity(AbstractObj):
+class Metropolitan(AbstractObj):
     """
     Class for submetropolitian city
     """
     pass
+
+
+# Create the list of metropolitian, submetropolitian, and municipalites and remote municipalities
+metropolitans, sub_metropolitans, municipalities, rural_municipalities = list(
+), list(), list(), list()
+
+types = ("metropolitan", "submetropolitan",
+         "municipality", "ruralmunicipality")
+
+for item in json_municipalities:
+    if item.get('type') in types:
+        if item.get('type') == "metropolitan":
+           metropolitans.append(Metropolitan(**item))
+
+        elif item.get('type') == "submetropolitan":
+            sub_metropolitans.append(SubMetropolitan(**item))
+
+        elif item.get('type') == "municipality":
+            municipalities.append(Municipality(**item))
+
+        elif item.get('type') == "ruralmunicipality":
+            rural_municipalities.append(RuralMunicipality(**item))
+
+
+# name list of all metropolitans
+metropolitan_names = list()
+for metropolitan in metropolitans:
+    # clean up metropolitan name
+    name = getattr(metropolitan, "name", None)
+    if name:
+        metropolitan_names.append(clean_string(name))
+    pass
+
+
+# List of metropolitans, having attribute as metropolitan name
+# metropolitans.kathmandu returns Metropolitan("Kathmandu")
+metropolitans = lists(*metropolitans, attr_list=metropolitan_names)
+
+
+# name list of all sub_metropolitans
+sub_metropolitan_names = list()
+for sub_metropolitan in sub_metropolitans:
+    # clean up sub metropolitan name
+    name = getattr(sub_metropolitan, "name", None)
+    if name:
+        sub_metropolitan_names.append(clean_string(name))
+
+#  sub_metropolitians, municipalities, rural_municipalities
+sub_metropolitans = lists(
+    *sub_metropolitans, attr_list=sub_metropolitan_names)
+
+
+# name list of all municipality
+municipality_names = list()
+for municipality in municipalities:
+    # clean up sub municipality name
+    name = getattr(municipality, "name", None)
+
+    if name:
+        municipality_names.append(clean_string(name))
+
+
+# Municipalities list
+municipalities = lists(*municipalities, attr_list=municipality_names)
+
+
+# Name list of all rural municipality
+rural_municipalities_names = list()
+for rural_municipality in rural_municipalities:
+    # clean up rural municipality name
+    name = getattr(municipality, "name", None)
+    if name:
+        rural_municipalities_names.append(clean_string(name))
+
+
+# rural municipalities list
+rural_municipalities = lists(
+    *rural_municipalities, attr_list=rural_municipalities_names)
 
 
 class District(AbstractObj):
@@ -62,31 +175,20 @@ class District(AbstractObj):
     pass
 
 
-class _Districts(list):
-    """
-    Return a list of districts with max value of 77
-    """
-    # List of districts name
-    districts_name = [district.get("name").lower()
-                      for district in json_districts]
+# Create List of districts using list type
+districts = [District(**json_district) for json_district in json_districts]
 
-    def __init__(self, *args):
-        super(_Districts, self).__init__()
-       
-        # append the items
-        for item in args:
-            self.append(item)
-        
-    def __getattr__(self, attrname):
-        if attrname not in self.districts_name:
-            raise AttributeError("{} has no attribute {}".format(self.__class__.__name__, attrname))
-        
-        # Search the districts object and return the value. 
-        return list(filter(lambda district: district.name == attrname, self))[0]    
+# Create a list of districts that support (.) operator, example: districts.gulmi.name
+# List of district name
+district_names = []
+for district in districts:
+    name = getattr(district, "name")
+    # Clean name example eastern rukum to eastern_rukum
+    name = clean_string(name)
+    district_names.append(name)
 
-
-# Create List of districts which is a type of _Districts
-districts = _Districts(*[District(**json_district) for json_district  in json_districts]) 
+# List of districts
+districts = lists(*districts, attr_list=district_names)
 
 
 class Province(AbstractObj):
@@ -101,10 +203,9 @@ class Province(AbstractObj):
        """
        province_districts = [
            dist for dist in districts if dist.province_no == self.province_no]
-        
-   
+
        # Create and return of list of districts
-       return _Districts(*province_districts)
+       return lists(*province_districts, attr_list=province_districts)
 
 
 class _Provinces(list):
@@ -113,7 +214,8 @@ class _Provinces(list):
     """
     province_names = ("province_one", "province_two", "province_three",
                       "province_four", "province_five", "province_six", "province_seven")
-    indexes = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,"seven":7}
+    indexes = {"one": 1, "two": 2, "three": 3,
+               "four": 4, "five": 5, "six": 6, "seven": 7}
 
     def __init__(self):
         super(_Provinces, self).__init__()
@@ -136,6 +238,5 @@ class _Provinces(list):
         return self[self.indexes.get(index)-1]
 
 
-
-# Create provinces
+# List of provinces
 provinces = _Provinces()
