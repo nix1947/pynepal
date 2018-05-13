@@ -207,6 +207,44 @@ class Province(AbstractObj):
        # Create and return of list of districts
        return lists(*province_districts, attr_list=province_districts)
 
+    @property
+    def metropolitans(self):
+        """
+        Return the list of all metropolitans from this province
+        """
+        metropolitans_list = [
+            metropolitan for metropolitan in metropolitans if metropolitan.province_no == self.province_no]
+        return metropolitans_list
+
+    @property
+    def sub_metropolitans(self):
+        """
+        Return the list of all metropolitans from this province
+        """
+        sub_metropolitan_lists = [
+            sub_metropolitan for sub_metropolitan in sub_metropolitans if sub_metropolitan.province_no == self.province_no]
+        return sub_metropolitan_lists
+
+    @property
+    def municipalities(self):
+        """
+        Return the list of municipalities of this province
+        """
+        municipalities_list = [
+            municipality for municipality in municipalities if municipality.province_no == self.province_no]
+
+        return municipalities_list
+
+    @property
+    def rural_municipalities(self):
+        """
+        Return the list of municipalities of this province
+        """
+        rural_municipality_lists = [
+            rural_municipality for rural_municipality in rural_municipalities if rural_municipality.province_no == self.province_no]
+
+        return rural_municipality_lists
+
 
 class _Provinces(list):
     """
